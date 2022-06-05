@@ -1,11 +1,13 @@
 const express = require('express');
 const { default: mongoose } = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 //Connect to DB
 mongoose.connect(
-    'mongodb://localhost:27017/greenhouse',
+    process.env.MONGODB_URI,
     { useNewUrlParser: true, useUnifiedTopology: true },
     err => {
         if (err) {
