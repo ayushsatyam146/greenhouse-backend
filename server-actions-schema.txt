@@ -1,0 +1,44 @@
+Sensor Data -
+
+Sensor Data of spefic sensor (GET, POST, PUT) -
+Endpoint - ~/<pid>/block/<block-id>/sensor/<sensor-id>/
+data -
+    {
+        "sensor_id": "sensor_id",
+        "value": "value",
+        "timestamp": "timestamp",
+        "datatype": "Temp, Humidity, etc."
+        "Unit": "C, %, etc." (Optional)
+    }
+
+Sensor Data of All sensors in a block (GET, POST, PUT) -
+Endpoint - ~/<pid>/block/<block-id>/sensor/
+data - [
+    {
+        "sensor_id": "sensor_id",
+        "value": "value",
+        so on...
+    },
+]
+
+Actuator Data -
+
+Actuator Data of spefic actuator (GET, POST, PUT) -
+Endpoint - ~/<pid>/block/<block-id>/actuator/<actuator-id>/
+data -
+    {
+        "actuator_id": "actuator_id",
+        "Status": "on.off",
+        "mode": "Auto/Manual",
+        "datatype": "Data that is affected, Temp, Humidity, etc.",
+    }
+
+Actuator Data of All actuators in a block (GET, POST) -
+Endpoint - ~/<pid>/block/<block-id>/actuator/
+data - [
+    {
+        "actuator_id": "actuator_id",
+        "Status": "on.off",
+        more..
+    },
+]
