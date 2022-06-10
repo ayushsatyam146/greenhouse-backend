@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 //Importing the routes
 const authRoutes = require('./auth');
+const testRoutes = require('./tests');
 
 //Connect to DB
 mongoose.connect(
@@ -27,4 +28,5 @@ app.use(express.json());
 
 //Route Middlewares
 app.use('/api/user', authRoutes);
+app.use('/api/tests', testRoutes);
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
