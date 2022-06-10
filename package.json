@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ayushsatyam146/greenhouse-backend#readme",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mongodb": "^4.6.0",
