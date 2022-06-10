@@ -1,21 +1,22 @@
 const router = require('express').Router();
 const User = require('./models/User');
-
-router.post('/test', (req, res) => {
-    res.send('registering user');
-});
+const {registerValidation, loginValidation} = require('./validation');
 
 router.post('/register', async (req, res) => {
+
+    const { error } = registerValidation(req.body);  
+    if (error) {
+        return res.status(400).send(error.details[0].message);
+    }
     const user = new User({
-        first_name : req.body.first_name,
-        last_name : req.body.last_name,
+        name : req.body.name,
         email : req.body.email,
         password : req.body.password,
         avatar : req.body.avatar
     });
     try{
         const savedUser = await user.save();
-        res.send({user: user._id});
+        res.send({user: user});
     }catch(err){
         res.status(500).send(err);
     }
